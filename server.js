@@ -202,7 +202,6 @@ function addEmployee() {
    ]).then((data) => {
     db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${data.newEmpFirst}", "${data.newEmpLast}", ${data.newEmpRole}, ${data.newEmpManager});`, function (err, results) {
       console.log(`${data.newEmpFirst} ${data.newEmpLast} added to db`);
-      console.log(data)
       startup()   
    });
   })
@@ -229,7 +228,6 @@ function updateEmployeeRole() {
      ]).then((data) => {
       db.query(`UPDATE employee SET role_id = ${data.empNewRole} WHERE id = ${data.updateEmp}`, function (err, results) {
         console.log(`Employee role changed`);
-        console.log(data)
         startup()   
      });
     })
